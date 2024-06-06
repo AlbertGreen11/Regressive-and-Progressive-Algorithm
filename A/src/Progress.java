@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Progres implements IProgressive {
+public class Progress implements IProgressive {
     private List<String> rules = new ArrayList<>();
     private List<String> facts = new ArrayList<>();
 
     @Override
     public boolean loadKnowledgeBaseSet(String filename) {
+        this.eraseKnowledgeBase();
+
         try {
             Scanner scanner = new Scanner(new File(filename));
 
@@ -32,6 +34,8 @@ public class Progres implements IProgressive {
 
     @Override
     public boolean loadFactSet(String filename) {
+        this.eraseFactSet();
+
         try {
             Scanner scanner = new Scanner(new File(filename));
 
@@ -72,7 +76,14 @@ public class Progres implements IProgressive {
 
         this.rules.forEach(rule -> {
             String[] ruleSplit = rule.split("<-");
-            String[] tail = ruleSplit[1].split(",");
+
+            String[] tail;
+
+            if ( ruleSplit.length > 1 ) {
+                tail = ruleSplit[1].split(",");
+            } else {
+                tail = new String[]{};
+            }
 
             boolean correct = true;
 
