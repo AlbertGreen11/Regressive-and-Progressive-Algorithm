@@ -2,6 +2,7 @@ package com.example.projektsijad;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class Application extends javafx.application.Application {
         stage.setTitle("JAD - Jakościowe Algorytmy Danych");
         stage.setScene(scene);
         stage.resizableProperty().setValue(false);
+        stage.getIcons().add(new Image("file:dolphin.png"));
         stage.show();
     }
 

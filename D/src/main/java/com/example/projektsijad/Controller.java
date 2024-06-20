@@ -2,22 +2,30 @@ package com.example.projektsijad;
 
 import com.example.projektsijad.Algorithms.Progress;
 import com.example.projektsijad.Algorithms.Regress;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
+    private File file = new File(Paths.get(".").toAbsolutePath().normalize().toString());
     public void loadRules(ActionEvent actionEvent) {
         Stage stage = (Stage) rulesDirectory.getScene().getWindow();
 
@@ -25,11 +33,15 @@ public class Controller {
 
         fileChooser.setTitle("Otwórz plik");
 
+        fileChooser.setInitialDirectory(file);
+
         File file = fileChooser.showOpenDialog(stage);
 
         this.loadGoals(file);
 
         rulesDirectory.setText(file.getAbsolutePath());
+
+        this.file = new File(file.getParent());
     }
 
     public void loadFacts(ActionEvent actionEvent) {
@@ -39,9 +51,13 @@ public class Controller {
 
         fileChooser.setTitle("Otwórz plik");
 
+        fileChooser.setInitialDirectory(file);
+
         File file = fileChooser.showOpenDialog(stage);
 
         factsDirectory.setText(file.getAbsolutePath());
+
+        this.file = new File(file.getParent());
     }
 
     private void loadGoals(File file) {
@@ -68,6 +84,8 @@ public class Controller {
     }
 
     public void generateFacts(ActionEvent actionEvent) {
+        resultArea.setText("");
+
         String rulesDir = rulesDirectory.getText();
         String factsDir = factsDirectory.getText();
 
@@ -88,6 +106,8 @@ public class Controller {
     }
 
     public void findGoal(ActionEvent actionEvent) {
+        resultArea.setText("");
+
         String rulesDir = rulesDirectory.getText();
         String factsDir = factsDirectory.getText();
         String goal = (String) goalsChoiceBox.getValue();
@@ -104,10 +124,18 @@ public class Controller {
         boolean result = regress.execute(goal);
 
         if (result) {
-            resultArea.appendText(goal + " SPEŁNIONE :D");
+            resultArea.appendText(goal + " SPEŁNIONE");
         } else {
-            resultArea.appendText(goal + " NIESPEŁNIONE D:");
+            resultArea.appendText(goal + " NIESPEŁNIONE");
         }
+    }
+
+    public void closeApp(ActionEvent actionEvent) {
+        Platform.exit();
+    }
+
+    public void showAuthors(ActionEvent actionEvent) {
+        resultArea.setText("                                        ----------   Autorzy   ----------" + "\n\n" + "                                            -->      Jakub Ryba      <--" + "\n" + "                                            -->   Albert Pacocha   <--" + "\n" + "                                            -->   Daniel Pacocha   <--");
     }
 
     @FXML

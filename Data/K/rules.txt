@@ -1,5 +1,0 @@
-h<-a,s
-a<-p,q,b
-b<-c,q
-d<-a,z
-s<-b,c

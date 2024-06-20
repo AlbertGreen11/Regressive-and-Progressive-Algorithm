@@ -1,7 +1,0 @@
-a<-c,d
-a<-b,h,f
-a<-w,h
-b<-w
-b<-d,g
-d<-h,f
-w<-f,g

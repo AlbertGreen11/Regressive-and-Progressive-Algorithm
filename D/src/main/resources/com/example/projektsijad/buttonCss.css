@@ -1,0 +1,19 @@
+.text-field:focused, .text-area:focused, .button:hover, .choice-box:hover {
+    -fx-effect: dropshadow(three-pass-box, blueviolet, 10, 0, 0, 0);
+    -fx-border-color: green;
+    -fx-border-radius: 1%;
+    -fx-border-style: solid inside;
+    -fx-border-width: 2;
+}
+
+.menu-item:focused {
+    -fx-background-color: green;
+}
+
+.menu:hover, .menu:showing{
+  -fx-background-color: blueviolet;
+}
+
+.text-area {
+    -fx-text-fill: green;
+}

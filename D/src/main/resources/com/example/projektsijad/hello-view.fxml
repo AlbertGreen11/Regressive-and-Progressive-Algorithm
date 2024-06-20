@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-size: 100%;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektsijad.Controller">
+<GridPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-size: 100%;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektsijad.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -23,16 +23,19 @@
     <RowConstraints maxHeight="381.3333492279053" minHeight="10.0" prefHeight="374.6666564941406" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <MenuBar GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <MenuBar stylesheets="@buttonCss.css" GridPane.halignment="LEFT" GridPane.valignment="TOP">
         <menus>
-          <Menu mnemonicParsing="false" text="Plik">
+          <Menu id="plik" mnemonicParsing="false" text="Plik">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#loadRules" text="Wczytaj reguły" />
                   <MenuItem mnemonicParsing="false" onAction="#loadFacts" text="Wczytaj fakty" />
-                  <MenuItem mnemonicParsing="false" text="Zamknij" />
+                  <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Zamknij" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="O Autorach" />
+          <Menu id="oAutorach" mnemonicParsing="false" text="O Autorach">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showAuthors" text="Wyświetl Autorów" />
+               </items></Menu>
         </menus>
       </MenuBar>
       <GridPane GridPane.rowIndex="1">
@@ -65,20 +68,20 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField fx:id="rulesDirectory" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="rulesDirectory" editable="false" stylesheets="@buttonCss.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
                      <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </TextField>
-                  <TextField fx:id="factsDirectory" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="factsDirectory" editable="false" stylesheets="@buttonCss.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
                      <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </TextField>
                </children>
@@ -102,17 +105,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#generateFacts" prefHeight="25.0" prefWidth="91.0" text="Generuj fakty">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#generateFacts" prefHeight="25.0" prefWidth="91.0" stylesheets="@buttonCss.css" text="Generuj fakty">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#findGoal" prefHeight="25.0" prefWidth="91.0" text="Sprawdź cel" GridPane.rowIndex="1">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#findGoal" prefHeight="25.0" prefWidth="91.0" stylesheets="@buttonCss.css" text="Sprawdź cel" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Button>
-                        <ChoiceBox fx:id="goalsChoiceBox" prefHeight="25.0" prefWidth="209.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="goalsChoiceBox" focusTraversable="false" prefHeight="25.0" prefWidth="209.0" stylesheets="@buttonCss.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="1">
@@ -126,10 +129,13 @@
                     </rowConstraints>
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wynik:" GridPane.columnIndex="1" />
-                        <TextArea fx:id="resultArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextArea fx:id="resultArea" editable="false" prefHeight="200.0" prefWidth="200.0" stylesheets="@buttonCss.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="20.0" right="20.0" />
                            </GridPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
                         </TextArea>
                      </children>
                   </GridPane>
