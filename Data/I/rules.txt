@@ -157,7 +157,7 @@ Coq au Vin<-chicken,pork shoulder steak cut into 1/2 inch cubes,boiling onions,m
 Creamy Chicken Broccoli with Rice<-miracle whip,b1less skinless chicken breast cubed,broccoli chopped,Velveeta,rice
 In a Hurry Chicken Curry<-skinless b1less chicken breasts,vegetable oil,white onions chopped,garlic minced,green onions sliced,curry powder,powdered sugar,cornstarch,chicken broth,broccoli florets bite size pieces,cooking apple cored and chopped,raisins,chopped peanuts
 Jack Zucchini Chicken<-zucchini
-<-green onions chopped,flour,chili powder,butter,chicken breast halves b1d and skinned,freshly ground pepper,jack cheese
+JAD<-green onions chopped,flour,chili powder,butter,chicken breast halves b1d and skinned,freshly ground pepper,jack cheese
 Maryland Fried Chicken<-broiler chicken cut up,all-purpose flour,salt,pepper,vegetable oil,water,butter,milk
 Oven Fried Chicken<-chicken parts,cream of mushroom soup,milk,onion chopped,parsley chopped,crushed stuffing mix,butter
 Parsley and Parmasen Baked Chicken<-Italian salad dressing,chicken cut up,egg,water,parmasen cheese,bread crumbs,parsley,salt,paprika,pepper

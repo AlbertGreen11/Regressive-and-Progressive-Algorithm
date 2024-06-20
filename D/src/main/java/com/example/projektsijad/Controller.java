@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
-    private File file = new File(Paths.get(".").toAbsolutePath().normalize().toString());
+    private File file = new File(Paths.get(".").toAbsolutePath().getParent().normalize().toString());
     public void loadRules(ActionEvent actionEvent) {
         Stage stage = (Stage) rulesDirectory.getScene().getWindow();
 
